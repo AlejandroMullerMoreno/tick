@@ -4,3 +4,9 @@ const gameBoard = (function(){
     // some code here
     return {}; // return an empty object for now
 })();
+
+function Player(){
+    // some properties of a player
+
+    return {}; // return an empty object for now
+}
