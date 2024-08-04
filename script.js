@@ -10,3 +10,17 @@ function Player(){
 
     return {}; // return an empty object for now
 }
+
+function gameLogic(){
+    // we might not want to make this variable have this scope
+    const continueGame = true;
+    while (continueGame){
+        let playerOneMove = prompt("Player 1: Make a move (e.g., Xon11)");
+        console.log(playerOneMove);
+        break;
+
+    }
+
+}
+
+gameLogic();
