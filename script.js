@@ -1,8 +1,10 @@
 // module for gameboard object
 const gameBoard = (function(){
     let currentBoard = []; // the current state of the gameboard
-    // some code here
-    return {}; // return an empty object for now
+    const addMove = function(move){
+        currentBoard.push(move);
+    }
+    return {currentBoard,addMove}; // return an empty object for now
 })();
 
 function Player(){
@@ -17,6 +19,8 @@ function gameLogic(){
     while (continueGame){
         let playerOneMove = prompt("Player 1: Make a move (e.g., Xon11)");
         console.log(playerOneMove);
+        gameBoard.addMove(playerOneMove);
+        console.log(gameBoard.currentBoard);
         break;
 
     }
