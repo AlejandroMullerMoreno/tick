@@ -4,7 +4,10 @@ const gameBoard = (function(){
     const addMove = function(move){
         currentBoard.push(move);
     }
-    return {currentBoard,addMove};
+    const getLengthOfBoard = function(){
+        return currentBoard.length;
+    }
+    return {currentBoard,addMove,getLengthOfBoard};
 })();
 
 const stateOfTheGame = (function (){
@@ -31,17 +34,29 @@ function Player(){
 }
 
 function gameLogic(){
-    // we might not want to make this variable have this scope
     while (stateOfTheGame.continueGame){
         let playerOneMove = prompt("Player 1: Make a move (e.g., X11)");
-        console.log(playerOneMove);
+        // console.log(playerOneMove);
         gameBoard.addMove(playerOneMove);
-        console.log(gameBoard.currentBoard);
+        if (gameBoard.getLengthOfBoard() >= 5){
+            // check to see if a player has won
+            console.log(gameBoard);
+            console.log("Some player might have won!!!");
+            break;
+        }
+        let playerTwoMove = prompt("Player 2: Make a move (e.g., O11)");
+        gameBoard.addMove(playerTwoMove);
+        if (gameBoard.getLengthOfBoard() >= 5){
+            // check to see if a player has won
+            console.log("Some player might have won!!!");
+            break;
+        }
+        // console.log(gameBoard.currentBoard);
         stateOfTheGame.increaseRound();
-        console.log(stateOfTheGame);
-        console.log(gameBoard);
-        console.log("This is the current round: " + stateOfTheGame.getCurrentRound());
-        break;
+        // console.log(stateOfTheGame);
+        // console.log(gameBoard);
+        // console.log("This is the current round: " + stateOfTheGame.getCurrentRound());
+        // console.log("This is the current board's length: " + gameBoard.getLengthOfBoard());
 
     }
 
